@@ -1,0 +1,1 @@
+installutil DustInTheWind.WindowsService.DummyService.exe

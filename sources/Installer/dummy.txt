@@ -1,0 +1,8 @@
+﻿WiX Toolset Pills 15mg - Windows Service
+====================================================================================================
+
+This file is part of the "Windows Service" pill.
+The pill demonstrates how to install and start a windows service from an Windows Installer MSI.
+
+For more details please chech the GitHub repository:
+https://github.com/WiX-Toolset-Pills-15mg/Windows-Service

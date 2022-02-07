@@ -1,0 +1,1 @@
+msiexec /i WindowsService.Installer.msi /l*vx install.log

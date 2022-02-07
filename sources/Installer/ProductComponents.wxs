@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+WiX Toolset Pills 15mg
+Copyright (C) 2019-2022 Dust in the Wind
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+
+            <Component Id="DummyFileComponent" Guid="0397ACD8-A655-41EF-A256-B596D01A85D7">
+                <File
+                    Id="DummyFile"
+                    Source="$(var.ProjectDir)dummy.txt"
+                    KeyPath="yes" />
+            </Component>
+
+            <Component Id="ServiceInstaller" Guid="A79DB453-9872-4ED7-9ED7-72CE681EF418">
+                <File
+                    Id="ServiceFile"
+                    Source="$(var.WindowsService.DummyService.TargetDir)$(var.WindowsService.DummyService.TargetName).exe"
+                    KeyPath="yes" />
+
+                <ServiceInstall
+                    Id="DummyService"
+                    Type="ownProcess"
+                    Vital="yes"
+                    Name="MyDummyService"
+                    DisplayName="My Dummy Service - WiX Toolset Pill"
+                    Description="This is part of the WiX Toolset Pill called 'Windows Service'. This pill demonstrates how to install a windows service."
+                    ErrorControl="normal"
+                    Account="LocalSystem"
+                    Start="auto"
+                    Interactive="no" />
+
+                <ServiceControl
+                    Id="DummyServiceControl"
+                    Name="MyDummyService"
+                    Start="install"
+                    Remove="uninstall"
+                    Stop="both" />
+            </Component>
+
+        </ComponentGroup>
+
+    </Fragment>
+</Wix>

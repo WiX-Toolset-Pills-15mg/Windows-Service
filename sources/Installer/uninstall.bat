@@ -1,0 +1,1 @@
+msiexec /x WindowsService.Installer.msi /l*vx uninstall.log
